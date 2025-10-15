@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -56,7 +57,6 @@ public class Application {
 	//Mapの中の番号が偶数のものをMapから削除する
 	//上記の処理を行う、繰り返し処理を実装
 	//削除した状態のものを出力して表示してください
-	 */
 		Map<Integer, String> studentMap = new HashMap<>();
 		studentMap.put(1, "小久井");
 		studentMap.put(2, "田中");
@@ -78,7 +78,33 @@ public class Application {
 		//文字列のリストを作成、要素数は10個
 		// その文字列に対して、文字数が5文字以上のものを抽出して文字列に変換する
 		//  区切り文字はカンマ（,）で行う。その文字列を出力してください
+		List<String> fruitsList = new ArrayList<>();
 
+		fruitsList.add("Apple");
+		fruitsList.add("Banana");
+		fruitsList.add("Orange");
+		fruitsList.add("Grape");
+		fruitsList.add("Mango");
+		fruitsList.add("Peach");
+		fruitsList.add("Cherry");
+		fruitsList.add("Pineapple");
+		fruitsList.add("Strawberry");
+		fruitsList.add("Watermelon");
+
+		System.out.println(fruitsList.stream()
+				.filter(v -> v.length() >= 6)
+				.collect(Collectors.joining(","))); //カンマ区切りの文字列に変換　
+		     //.collect →　別の物に変換を掛ける
+
+		//数値のリストを作成、要素数は10個
+		//  その数値の中の奇数のものだけを抽出して、平均値を出して出力してください。
+		List<Integer> num = List.of(1,2,3,4,5,7,8,9,10);
+
+		System.out.println(num.stream()
+				.filter(v -> v %2==1) //奇数にフィルター
+				.mapToInt(v -> v) //参照型からプリミティブ型へ変換
+				.average() //平均値を出す
+				.orElse(0));  //もし空でも0を返す
+	 */
 	}
-
 	}
