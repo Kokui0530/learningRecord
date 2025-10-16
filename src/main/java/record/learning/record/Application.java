@@ -5,11 +5,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class Application {
+
+	private static final Logger log = LoggerFactory.getLogger(Application.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
@@ -105,6 +109,86 @@ public class Application {
 				.mapToInt(v -> v) //参照型からプリミティブ型へ変換
 				.average() //平均値を出す
 				.orElse(0));  //もし空でも0を返す
+
+		//① 変数xに10を代入し、xに5を足した結果を表示するプログラムを書いてください。
+		int x = 10;
+		System.out.println(x + 5);
+
+		//② 文字列nameに「Java」を代入し、「こんにちは、Javaさん」と表示するにはどう書きますか？
+		String name = "Java";
+		System.out.println("こんにちは" + name + "さん。");
+
+		//③ int age = 20; のとき、もし age が18以上なら「成人です」と表示する if 文を書いてください。
+		int age = 20;
+		if (age >= 18) {
+			System.out.println("成人です");
+		} else {
+			System.out.println("未成年です");
+		}
+
+		//④ 0〜4までの数字を順に表示する for 文を書いてください。
+		for (int i = 0; i < 5; i++) {
+			System.out.println(i);
+		}
+		//int i = 0;　を外で定義してもOKだけど、その場合は(; i < 5 ; i++)と書く。
+		//最初の ; を忘れずに。for文の基本形 for(初期化; 条件; 更新){ だよ
+
+		//⑤ 配列int[] scores = {80, 90, 70};の2番目の要素を表示するコードを書いてください。
+		int[] scores = {80, 90, 70};
+		System.out.println(scores[1]);
+		//要素は0から数える為１
+
+		//⑥ 1〜10までの合計を求めて表示するプログラムを書いてください
+		int sum = 0;
+		for (int i = 1; i < 11; i++) {
+			sum = sum + i; //毎回sumにiを足していく
+		}
+		System.out.println(sum); //合計結果を表示
+
+		//⑦ 文字列配列 {"りんご", "みかん", "バナナ"} を拡張for文で1つずつ表示してください。
+		String[] fruit = {"りんご", "みかん", "バナナ"};
+		for (String fruitName : fruit) {
+			System.out.println(fruitName);
+		}
+
+		//⑧ switch文を使って、変数colorが"red"なら「赤です」、"blue"なら「青です」
+		// それ以外は「その他の色です」と表示するプログラムを書いてください。
+		String color = "blue";
+		switch (color) {
+			case "red" -> System.out.println("赤です");
+			case "blue" -> System.out.println("青です");
+			default -> System.out.println("その他の色です");
+		}
+
+		//変数 score に 80 が入っています。
+		//switch文を使って、次のように表示してください（ただし、点数を10で割った値を使って判定してください）
+		//10または9 → 「A評価」,/8または7 → 「B評価」,それ以外 → 「C評価」
+		int score = 80;
+		switch (score / 10) {
+			case 10, 9 -> System.out.println("A評価");
+			case 8, 7 -> System.out.println("B評価");
+			default -> System.out.println("C評価");
+		}
+
+		//⑪ List<Integer>を使って、1〜10の中から偶数だけを表示するコードを書いてください。
+		List<Integer> num = List.of(1,2,3,4,5,6,7,8,9,10);
+		for (int number : num){
+			if (number %2==0){
+				System.out.println(number);
+			}
+		}
+
+		//⑫ Map<Integer, String>を作成して、(1,"Java")、(2,"Python")、(3,"C++")を登録し、キーが2の値を表示してください。
+		Map<Integer, String> language = new HashMap<>();
+		language.put(1, "Java");
+		language.put(2, "Python");
+		language.put(3, "C++");
+
+		System.out.println(language.get(2));
+
 	 */
+		//⑬ コンストラクタを使って、Personクラスをnew Person("田中", 25)で作成できるようにしてください。
+		//⑭ if文とfor文を組み合わせて、1〜10の中で3の倍数だけを表示するコードを書いてください。
+		//⑮ 例外処理を使って、int result = 10 / 0; のようなコードがエラーになっても「エラーが発生しました」と表示するようにしてください。
 	}
-	}
+}
