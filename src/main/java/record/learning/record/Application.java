@@ -1,5 +1,6 @@
 package record.learning.record;
 
+import java.awt.image.ImageProducer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -187,8 +188,25 @@ public class Application {
 		System.out.println(language.get(2));
 
 	 */
-		//⑬ コンストラクタを使って、Personクラスをnew Person("田中", 25)で作成できるようにしてください。
-		//⑭ if文とfor文を組み合わせて、1〜10の中で3の倍数だけを表示するコードを書いてください。
-		//⑮ 例外処理を使って、int result = 10 / 0; のようなコードがエラーになっても「エラーが発生しました」と表示するようにしてください。
+		//Listの中から 80点以上のスコアだけ を表示してください。
+		List<Integer> scores = List.of(55, 70, 82, 90, 47, 100);
+		scores.stream()
+				.filter(v -> v >= 80)
+				.forEach(System.out::println);
+
+		// Mapを作成して、(1,"りんご")、(2,"みかん")、(3,"バナナ") を登録
+		// キーが 2 の値を取り出して表示する
+		Map<Integer, String> fruit = new HashMap<>();
+		fruit.put(1, "りんご");
+		fruit.put(2, "みかん");
+		fruit.put(3, "バナナ");
+		String result = fruit.get(5);
+		// キーを指定して値を取り出す
+		// もし値が null の場合は「該当なし」と表示する
+		if (result == null) {
+			System.out.println("該当なし");
+		} else {
+			System.out.println(result);
+		}
 	}
 }
